@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ira Magazine</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#">IRA<span>MAG</span></a>
+
+    <nav class="nav">
+      <a href="#features">Features</a>
+      <a href="#vlogs">Vlogs</a>
+      <a href="#quizzes">Quizzes</a>
+      <a href="#editorial">Editorial</a>
+    </nav>
+
+    <a class="nav-button" href="#subscribe">Subscribe</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">Digital Culture • Style • Ideas</p>
+        <h1>A futuristic magazine for stories, visuals, vlogs, and interactive quizzes.</h1>
+        <p class="hero-copy">
+          Explore curated features, creator diaries, lifestyle edits, and personality-driven quizzes in a sleek digital magazine experience.
+        </p>
+        <div class="hero-actions">
+          <a href="#features" class="primary-button">Explore Latest</a>
+          <a href="#quizzes" class="secondary-button">Take a Quiz</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <p class="issue-label">Current Issue</p>
+        <h2>The Future Moodboard</h2>
+        <p>Trends, creators, aesthetics, and stories shaping the next digital era.</p>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Featured Stories</p>
+        <h2>Magazine Highlights</h2>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card large">
+          <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=1200&q=80" alt="Magazine spread" />
+          <div>
+            <p class="tag">Cover Story</p>
+            <h3>Designing Your Digital Identity</h3>
+            <p>How personal style, storytelling, and online presence are merging into one creative signature.</p>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80" alt="Fashion editorial" />
+          <div>
+            <p class="tag">Style</p>
+            <h3>Neo-Editorial Fashion</h3>
+            <p>Sharp silhouettes, glossy textures, and futuristic minimalism.</p>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" alt="Laptop workspace" />
+          <div>
+            <p class="tag">Culture</p>
+            <h3>The Creator Desk</h3>
+            <p>Inside the habits and tools behind modern creative work.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="vlogs" class="section dark-section">
+      <div class="section-heading">
+        <p class="eyebrow">Video Diaries</p>
+        <h2>Latest Vlogs</h2>
+      </div>
+
+      <div class="vlog-grid">
+        <article class="vlog-card">
+          <div class="video-frame">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vlog video" allowfullscreen></iframe>
+          </div>
+          <h3>A Day in My Creative Life</h3>
+          <p>Behind the scenes of planning, styling, filming, and editing.</p>
+        </article>
+
+        <article class="vlog-card">
+          <div class="video-frame">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vlog video" allowfullscreen></iframe>
+          </div>
+          <h3>Digital Magazine Moodboard</h3>
+          <p>Visual inspiration, color direction, and future-forward ideas.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="quizzes" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Interactive</p>
+        <h2>Magazine Quizzes</h2>
+      </div>
+
+      <div class="quiz-box">
+        <h3>What is your digital aesthetic?</h3>
+        <p id="quiz-question">Choose the workspace you like most:</p>
+
+        <div class="quiz-options">
+          <button onclick="answerQuiz('Minimal Futurist')">Clean, silver, and minimal</button>
+          <button onclick="answerQuiz('Editorial Dreamer')">Moodboards and magazines</button>
+          <button onclick="answerQuiz('Cyber Creative')">Neon lights and tech</button>
+          <button onclick="answerQuiz('Soft Curator')">Warm tones and cozy visuals</button>
+        </div>
+
+        <p id="quiz-result"></p>
+      </div>
+    </section>
+
+    <section id="editorial" class="section editorial-strip">
+      <div>
+        <p class="eyebrow">Editor's Note</p>
+        <h2>Built like a magazine. Updated like a feed.</h2>
+      </div>
+      <p>
+        This site blends long-form storytelling, video content, and interactive features so visitors can read, watch, and participate.
+      </p>
+    </section>
+
+    <section id="subscribe" class="section subscribe">
+      <h2>Join the next issue</h2>
+      <p>Get updates on new stories, vlogs, quizzes, and creative drops.</p>
+
+      <form>
+        <input type="email" placeholder="Your email address" />
+        <button type="submit">Subscribe</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Ira Magazine. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
