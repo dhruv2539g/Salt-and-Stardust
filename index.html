@@ -3,151 +3,504 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ira Magazine</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Pastel Edit</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      background: #fff8fb;
+      color: #2f2a35;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 7vw;
+      background: rgba(255, 248, 251, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid #f2dce8;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 900;
+      color: #d86ca3;
+    }
+
+    .logo span {
+      color: #7fc8c2;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    nav a:hover {
+      color: #d86ca3;
+    }
+
+    .hero {
+      min-height: 86vh;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+      padding: 70px 7vw;
+      background:
+        radial-gradient(circle at top left, #ffe0ef, transparent 35%),
+        radial-gradient(circle at bottom right, #d8f5f0, transparent 40%),
+        #fff8fb;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 9px 14px;
+      background: #e8f6f3;
+      color: #408b87;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 18px 0;
+      font-size: clamp(44px, 8vw, 92px);
+      line-height: 0.95;
+      color: #2f2a35;
+    }
+
+    h2 {
+      font-size: clamp(32px, 5vw, 56px);
+      margin: 0 0 20px;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      font-size: 25px;
+    }
+
+    p {
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    .hero p {
+      max-width: 580px;
+      font-size: 19px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      margin-top: 26px;
+      flex-wrap: wrap;
+    }
+
+    button,
+    .button {
+      border: 0;
+      padding: 13px 20px;
+      border-radius: 999px;
+      background: #d86ca3;
+      color: white;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .button.alt {
+      background: #fff;
+      color: #d86ca3;
+      border: 1px solid #f0bfd7;
+    }
+
+    .cover-card {
+      padding: 28px;
+      border-radius: 26px;
+      background: linear-gradient(145deg, #ffe2ef, #ddf7f3);
+      box-shadow: 0 24px 70px rgba(216, 108, 163, 0.24);
+      transform: rotate(2deg);
+    }
+
+    .cover-card img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    section {
+      padding: 80px 7vw;
+    }
+
+    .soft {
+      background: #f5fbfa;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #f1dfea;
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: 0 14px 40px rgba(80, 61, 76, 0.08);
+    }
+
+    .card img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 18px;
+    }
+
+    .tag {
+      color: #d86ca3;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .vlog-frame {
+      aspect-ratio: 16 / 9;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #ead7e4;
+      margin-bottom: 14px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .quiz-box {
+      max-width: 850px;
+      margin: auto;
+      background: linear-gradient(135deg, #fff, #fff0f7);
+      border: 1px solid #f1dfea;
+      border-radius: 28px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    .quiz-options {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .quiz-options button {
+      background: white;
+      color: #2f2a35;
+      border: 1px solid #f0bfd7;
+    }
+
+    #quizResult {
+      margin-top: 24px;
+      color: #d86ca3;
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    .aura-studio {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .aura-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .aura-card {
+      min-height: 360px;
+      border-radius: 34px;
+      padding: 36px;
+      background: linear-gradient(135deg, #ffd9ec, #d6f6ef, #fff0c9);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      box-shadow: 0 26px 80px rgba(216, 108, 163, 0.26);
+    }
+
+    .aura-card h3 {
+      font-size: 42px;
+      margin: 0;
+    }
+
+    form {
+      max-width: 620px;
+      display: grid;
+      gap: 14px;
+    }
+
+    input,
+    textarea {
+      padding: 15px;
+      border-radius: 16px;
+      border: 1px solid #e9cddd;
+      font: inherit;
+    }
+
+    footer {
+      padding: 30px 7vw;
+      text-align: center;
+      background: #2f2a35;
+      color: white;
+    }
+
+    @media (max-width: 850px) {
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero,
+      .grid,
+      .aura-studio {
+        grid-template-columns: 1fr;
+      }
+
+      .quiz-options {
+        grid-template-columns: 1fr;
+      }
+
+      .cover-card img {
+        height: 280px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <a class="logo" href="#">IRA<span>MAG</span></a>
-
-    <nav class="nav">
-      <a href="#features">Features</a>
+  <header>
+    <a href="#" class="logo">Pastel<span>Edit</span></a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#blog">Blog</a>
+      <a href="#gallery">Gallery</a>
       <a href="#vlogs">Vlogs</a>
       <a href="#quizzes">Quizzes</a>
-      <a href="#editorial">Editorial</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </nav>
-
-    <a class="nav-button" href="#subscribe">Subscribe</a>
   </header>
 
-  <main>
+  <main id="home">
     <section class="hero">
-      <div class="hero-content">
-        <p class="eyebrow">Digital Culture • Style • Ideas</p>
-        <h1>A futuristic magazine for stories, visuals, vlogs, and interactive quizzes.</h1>
-        <p class="hero-copy">
-          Explore curated features, creator diaries, lifestyle edits, and personality-driven quizzes in a sleek digital magazine experience.
+      <div>
+        <span class="badge">Digital magazine for young creatives</span>
+        <h1>Your soft pastel world of stories, style and self-expression.</h1>
+        <p>
+          A fresh magazine-style website made for a younger audience, with dreamy visuals,
+          bite-sized reads, videos, quizzes and a signature interactive aura experience.
         </p>
-        <div class="hero-actions">
-          <a href="#features" class="primary-button">Explore Latest</a>
-          <a href="#quizzes" class="secondary-button">Take a Quiz</a>
+        <div class="hero-buttons">
+          <a class="button" href="#blog">Read the Edit</a>
+          <a class="button alt" href="#aura">Create Your Aura</a>
         </div>
       </div>
 
-      <div class="hero-card">
-        <p class="issue-label">Current Issue</p>
-        <h2>The Future Moodboard</h2>
-        <p>Trends, creators, aesthetics, and stories shaping the next digital era.</p>
+      <div class="cover-card">
+        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80" alt="Pastel magazine cover" />
+        <h3>The Glow Issue</h3>
+        <p>Trends, thoughts, visuals and voices for the new generation.</p>
       </div>
     </section>
 
-    <section id="features" class="section">
-      <div class="section-heading">
-        <p class="eyebrow">Featured Stories</p>
-        <h2>Magazine Highlights</h2>
-      </div>
+    <section id="blog">
+      <span class="badge">Blog</span>
+      <h2>Latest Stories</h2>
 
-      <div class="feature-grid">
-        <article class="feature-card large">
-          <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=1200&q=80" alt="Magazine spread" />
-          <div>
-            <p class="tag">Cover Story</p>
-            <h3>Designing Your Digital Identity</h3>
-            <p>How personal style, storytelling, and online presence are merging into one creative signature.</p>
-          </div>
-        </article>
-
-        <article class="feature-card">
+      <div class="grid">
+        <article class="card">
           <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80" alt="Fashion editorial" />
-          <div>
-            <p class="tag">Style</p>
-            <h3>Neo-Editorial Fashion</h3>
-            <p>Sharp silhouettes, glossy textures, and futuristic minimalism.</p>
-          </div>
+          <p class="tag">Style</p>
+          <h3>How to Build Your Signature Aesthetic</h3>
+          <p>Create a personal look online that feels polished, expressive and completely you.</p>
         </article>
 
-        <article class="feature-card">
-          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" alt="Laptop workspace" />
-          <div>
-            <p class="tag">Culture</p>
-            <h3>The Creator Desk</h3>
-            <p>Inside the habits and tools behind modern creative work.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="vlogs" class="section dark-section">
-      <div class="section-heading">
-        <p class="eyebrow">Video Diaries</p>
-        <h2>Latest Vlogs</h2>
-      </div>
-
-      <div class="vlog-grid">
-        <article class="vlog-card">
-          <div class="video-frame">
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vlog video" allowfullscreen></iframe>
-          </div>
-          <h3>A Day in My Creative Life</h3>
-          <p>Behind the scenes of planning, styling, filming, and editing.</p>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" alt="Creative workspace" />
+          <p class="tag">Creator Life</p>
+          <h3>Inside the New Digital Diary</h3>
+          <p>Why young creators are turning blogs, videos and moodboards into personal brands.</p>
         </article>
 
-        <article class="vlog-card">
-          <div class="video-frame">
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vlog video" allowfullscreen></iframe>
-          </div>
-          <h3>Digital Magazine Moodboard</h3>
-          <p>Visual inspiration, color direction, and future-forward ideas.</p>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1496449903678-68ddcb189a24?auto=format&fit=crop&w=900&q=80" alt="Notebook and flowers" />
+          <p class="tag">Wellness</p>
+          <h3>Romanticizing Your Routine</h3>
+          <p>Small habits, soft colors and intentional details that make everyday life feel better.</p>
         </article>
       </div>
     </section>
 
-    <section id="quizzes" class="section">
-      <div class="section-heading">
-        <p class="eyebrow">Interactive</p>
-        <h2>Magazine Quizzes</h2>
+    <section id="gallery" class="soft">
+      <span class="badge">Gallery</span>
+      <h2>Visual Moodboard</h2>
+
+      <div class="grid">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?auto=format&fit=crop&w=900&q=80" alt="Pastel lights" />
+          <h3>Pastel Glow</h3>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Soft scenery" />
+          <h3>Dream Spaces</h3>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80" alt="Portrait" />
+          <h3>Young Voices</h3>
+        </article>
       </div>
+    </section>
+
+    <section id="vlogs">
+      <span class="badge">Vlogs</span>
+      <h2>Video Diaries</h2>
+
+      <div class="grid">
+        <article class="card">
+          <div class="vlog-frame">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vlog" allowfullscreen></iframe>
+          </div>
+          <h3>A Day in My Life</h3>
+          <p>A soft, casual vlog for school, creativity, outfits and routines.</p>
+        </article>
+
+        <article class="card">
+          <div class="vlog-frame">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vlog" allowfullscreen></iframe>
+          </div>
+          <h3>My Moodboard Process</h3>
+          <p>How I collect ideas, colors and visuals for every new project.</p>
+        </article>
+
+        <article class="card">
+          <div class="vlog-frame">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vlog" allowfullscreen></iframe>
+          </div>
+          <h3>Mini Fashion Edit</h3>
+          <p>Simple styling ideas for a clean, pastel, magazine-inspired look.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="quizzes" class="soft">
+      <span class="badge">Quizzes</span>
+      <h2>Find Your Vibe</h2>
 
       <div class="quiz-box">
-        <h3>What is your digital aesthetic?</h3>
-        <p id="quiz-question">Choose the workspace you like most:</p>
+        <h3>What is your magazine personality?</h3>
+        <p>Pick the option that feels most like you.</p>
 
         <div class="quiz-options">
-          <button onclick="answerQuiz('Minimal Futurist')">Clean, silver, and minimal</button>
-          <button onclick="answerQuiz('Editorial Dreamer')">Moodboards and magazines</button>
-          <button onclick="answerQuiz('Cyber Creative')">Neon lights and tech</button>
-          <button onclick="answerQuiz('Soft Curator')">Warm tones and cozy visuals</button>
+          <button onclick="showQuiz('The Soft Dreamer')">Pastel outfits and journals</button>
+          <button onclick="showQuiz('The Trend Curator')">Fashion, edits and reels</button>
+          <button onclick="showQuiz('The Digital Muse')">Tech, design and future ideas</button>
+          <button onclick="showQuiz('The Cozy Creator')">Vlogs, playlists and routines</button>
         </div>
 
-        <p id="quiz-result"></p>
+        <div id="quizResult"></div>
       </div>
     </section>
 
-    <section id="editorial" class="section editorial-strip">
-      <div>
-        <p class="eyebrow">Editor's Note</p>
-        <h2>Built like a magazine. Updated like a feed.</h2>
+    <section id="aura">
+      <div class="aura-studio">
+        <div>
+          <span class="badge">Unique Feature</span>
+          <h2>Pastel Aura Studio</h2>
+          <p>
+            This interactive element makes the site memorable. Visitors can generate a personal
+            aura card based on their mood, then screenshot and share it.
+          </p>
+
+          <div class="aura-controls">
+            <button onclick="setAura('Dream Girl Energy', '#ffd9ec', '#d6f6ef', '#fff0c9')">Dreamy</button>
+            <button onclick="setAura('Main Character Mode', '#f7c8e0', '#c7d2fe', '#fef3c7')">Confident</button>
+            <button onclick="setAura('Soft Reset Era', '#d8f5f0', '#fde2e4', '#e2ece9')">Calm</button>
+            <button onclick="setAura('Future Muse', '#e0c3fc', '#8ec5fc', '#fff1eb')">Futuristic</button>
+          </div>
+        </div>
+
+        <div class="aura-card" id="auraCard">
+          <p class="tag">Your Aura</p>
+          <h3 id="auraTitle">Dream Girl Energy</h3>
+          <p>Screenshot this card and make it your weekly vibe.</p>
+        </div>
       </div>
+    </section>
+
+    <section id="about" class="soft">
+      <span class="badge">About</span>
+      <h2>About This Magazine</h2>
       <p>
-        This site blends long-form storytelling, video content, and interactive features so visitors can read, watch, and participate.
+        This website is designed like a soft digital magazine for young readers who enjoy
+        creativity, lifestyle, fashion, videos and interactive content. Replace this paragraph
+        with your original About page text.
       </p>
     </section>
 
-    <section id="subscribe" class="section subscribe">
-      <h2>Join the next issue</h2>
-      <p>Get updates on new stories, vlogs, quizzes, and creative drops.</p>
+    <section id="contact">
+      <span class="badge">Contact</span>
+      <h2>Let’s Connect</h2>
 
       <form>
-        <input type="email" placeholder="Your email address" />
-        <button type="submit">Subscribe</button>
+        <input type="text" placeholder="Your name" />
+        <input type="email" placeholder="Your email" />
+        <textarea rows="5" placeholder="Your message"></textarea>
+        <button type="submit">Send Message</button>
       </form>
     </section>
   </main>
 
-  <footer class="footer">
-    <p>© 2026 Ira Magazine. All rights reserved.</p>
+  <footer>
+    <p>© 2026 Pastel Edit. Made for GitHub Pages.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    function showQuiz(result) {
+      document.getElementById("quizResult").textContent = "You are: " + result;
+    }
+
+    function setAura(title, colorOne, colorTwo, colorThree) {
+      const card = document.getElementById("auraCard");
+      const auraTitle = document.getElementById("auraTitle");
+
+      auraTitle.textContent = title;
+      card.style.background = `linear-gradient(135deg, ${colorOne}, ${colorTwo}, ${colorThree})`;
+    }
+  </script>
 </body>
 </html>
